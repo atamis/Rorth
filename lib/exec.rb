@@ -42,7 +42,7 @@ module Rorth
 					end
 					
 					if_code.shift
-					puts if_code.join " "
+					puts if_code.join(" ")
 				end
 			end
 			if $INSERT_IFS
