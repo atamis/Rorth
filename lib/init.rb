@@ -15,6 +15,10 @@
 
 
 module Rorth
+	
+	$INSERT_IFS = false
+	$ENABLE_SEMI_IF = true
+	
 	def init
 		$stack = []
 		$words = {}
