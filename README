@@ -1,3 +1,12 @@
 Rorth
+=====
 
 A stack based, interpreted language, based on Forth.
+
+Depends
+-------
+It depends on nothing! Hazah! It may need OptsParse in the future, but that should be built in.
+
+License
+-------
+See LICENSE in the root directory. Still working on putting this in the actual program
