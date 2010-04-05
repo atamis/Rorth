@@ -1,0 +1,7 @@
+Things To Do
+ - Implement more interesting, and more useful, header system.
+ - Complete "semi-if" system, and ship next version with it disabled if it doesn't work, enabled if it does.
+ - Implement full argument parsing system, including version and license
+ - Add in code documentation, as well as rdoc
+ - Add multiplication and division to builtins
+ - Implement multiple stacks feature
