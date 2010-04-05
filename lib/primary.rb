@@ -13,27 +13,30 @@
 #       Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
 #       MA 02110-1301, USA.
 
-def forth_primary? x
-	if x =~ /".*"/ || x =~ /[1234567890]+/
-		true
-	elsif !x.is_a?(Integer)
-		x.downcase == "true" || x.downcase == "false"
-	else
-		false
+module Rorth
+	def primary? x
+		if x =~ /".*"/ || x =~ /[1234567890]+/
+			true
+		elsif !x.is_a?(Integer)
+			x.downcase == "true" || x.downcase == "false"
+		else
+			false
+		end
+	end
+	
+	def convert_primary x
+		if x =~/"(.*)"/
+			x = x.split(//)
+			x.shift
+			x.pop
+			x.join('')
+		elsif x =~ /[1234567890]+/ 
+			x.to_i
+		elsif x.downcase == "true"
+			true
+		elsif x.downcase == "false"
+			false
+		end
 	end
 end
 
-def forth_convert_primary x
-	if x =~/"(.*)"/
-		x = x.split(//)
-		x.shift
-		x.pop
-		x.join('')
-	elsif x =~ /[1234567890]+/ 
-		x.to_i
-	elsif x.downcase == "true"
-		true
-	elsif x.downcase == "false"
-		false
-	end
-end
