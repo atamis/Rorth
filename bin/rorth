@@ -1,0 +1,38 @@
+require 'builtins'
+require 'exec'
+require 'init'
+require 'primary'
+
+include Rorth
+
+
+# Initialize the Rorth System
+init
+
+# Change this. This sets the code equal to something, sets the headers, then, if the user provides a 
+# first argument, set the code equal to it. Little wierd, good for testing, not for production.
+code = <<END
+"test" 5 123 +
+END
+
+# Initialize the header. 
+# TODO allow for more flexibility concerning the header. Set it equal to a file, etc.
+header = <<END
+END
+
+# If we have a first argument, set the code equal to it.
+code = ARGV[0] if ARGV[0]
+
+# Split the code into an array of individual words, primaries, if statements, etc.
+code = code.split(" ")
+
+# Do the same to the header
+header = header.split
+
+# Execute the header and code string.
+exec header
+
+exec code
+
+# If we are in debug mode, print the stack. Helpful for, say, debugging.
+puts $stack.inspect if $DEBUG
