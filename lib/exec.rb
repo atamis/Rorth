@@ -14,7 +14,7 @@
 #       MA 02110-1301, USA.
 
 module Rorth
-	def forth_exec code
+	def exec code
 		loc = 0
 		while loc < code.length
 			if code[loc] == ':'
