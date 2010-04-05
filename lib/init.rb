@@ -19,5 +19,6 @@ module Rorth
 		$stack = []
 		$words = {}
 		$builtin_words = BuiltinWords.new
+		$tmp = nil
 	end
 end
