@@ -12,7 +12,7 @@ require 'rake/testtask'
 
 spec = Gem::Specification.new do |s|
   s.name = 'Rorth'
-  s.version = '0.1'
+  s.version = '0.1.1'
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'LICENSE']
   s.summary = 'An interpreted, stack based language based on Forth.'
