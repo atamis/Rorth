@@ -65,8 +65,8 @@ module Rorth
 				end
 			end
 			
-			if forth_primary? code[loc]
-				$stack = $stack.unshift(forth_convert_primary(code[loc]))
+			if primary? code[loc]
+				$stack = $stack.unshift(convert_primary(code[loc]))
 			end
 			
 			if $words.has_key? code[loc]
