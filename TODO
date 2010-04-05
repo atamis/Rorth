@@ -6,3 +6,4 @@ Things To Do
  - Add multiplication and division to builtins
  - Implement multiple stacks feature
  - Add more information to README.textile
+ - Implement interactive system. Use Clunk? Would add external dependencies...
