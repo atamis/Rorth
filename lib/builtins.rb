@@ -41,6 +41,10 @@ module Rorth
 			stack.unshift stack[0]
 		end
 		
+		def exit
+			exit
+		end
+		
 		# Logic
 		def and stack
 			a = stack.shift
