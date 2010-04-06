@@ -19,6 +19,7 @@ module Rorth
 		
 		end
 		
+		# Meta stuff. Next question
 		def cr stack
 			puts
 		end
@@ -36,16 +37,24 @@ module Rorth
 			stack.unshift $tmp
 		end
 		
-
-		
 		def dup stack
 			stack.unshift stack[0]
 		end
 		
+		# Logic
 		def and stack
 			a = stack.shift
 			b = stack.shift
 			stack.unshift a && b
+		end
+		
+		def or stack
+			a, b = stack.shift, stack.shift
+			stack.unshift a || b
+		end
+		
+		def not stack
+			stack.unshift !stack.shift
 		end
 		
 		# Mathematical stuff
