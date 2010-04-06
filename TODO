@@ -7,3 +7,4 @@ Things To Do
  - Implement multiple stacks feature
  - Add more information to README.textile
  - Implement interactive system. Use Clunk? Would add external dependencies...
+ - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
