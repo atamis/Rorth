@@ -1,0 +1,86 @@
+#!/usr/bin/ruby
+
+require 'optparse'
+
+require 'builtins'
+require 'exec'
+require 'init'
+require 'primary'
+require 'interactive'
+
+include Rorth
+
+# Set the defaults.
+$options = {:debug => false, :interactive => false, :code => false, :load => false}
+OptionParser.new do |opts|
+	opts.banner = "Usage: #{__FILE__} [options]"
+
+	opts.on("-d", "--[no-]debug", "Enable debug mode for the rorth interpreter. (Call -D for ruby debug.)") do |v|
+		$options[:debug] = v
+	end
+
+	opts.on('-e', '--inline-code [code]', "Run code from the command line.") do |v|
+		$options[:code] = v
+	end
+
+	opts.on('-i', '--[no-]interactive', "Run in an interactive mode.") do |c|
+		$options[:interactive] = c
+	end
+
+	opts.on('-D', '--[no-]ruby-debug', 'Enable ruby debug') do |v|
+		$DEBUG = v
+	end
+
+	opts.on('-l', '--load-file [FILE]', 'Select the file to load.') do |file|
+		$options[:load] = file
+	end
+
+	opts.on( '-h', '--help', 'Display this screen' ) do
+			puts opts
+			exit
+	end
+end.parse!
+
+puts $options.inspect if $options[:debug]
+
+puts "Ruby Debug Enabled" if $DEBUG
+
+# Initialize the Rorth System
+init
+
+at_exit do
+	# If we are in debug mode, print the stack. Helpful for, say, debugging.
+	puts $stack.inspect if $options[:debug]
+end
+
+
+# Initialize the header. 
+# TODO allow for more flexibility concerning the header. Set it equal to a file, etc.
+header = ""
+code = ""
+
+# Preform apropriet actions.
+if $options[:code]
+	code = $options[:code]
+elsif $options[:load]
+	code = IO.readlines($options[:load]).to_s
+else
+	enter_interactive
+end
+
+
+# Split the code into an array of individual words, primaries, if statements, etc.
+code = code.split(" ")
+
+# Do the same to the header
+header = header.split(" ")
+
+# Execute the header and code string.
+exec header
+
+exec code
+
+enter_interactive if $options[:interactive]
+	
+
+
