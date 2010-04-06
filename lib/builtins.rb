@@ -27,12 +27,6 @@ module Rorth
 			print stack[0].to_s
 		end
 		
-		def + stack
-			a = stack.shift
-			b = stack.shift
-			stack.unshift a + b
-		end
-		
 		def tmpg stack
 			$tmp = stack.shift
 			stack
@@ -42,11 +36,7 @@ module Rorth
 			stack.unshift $tmp
 		end
 		
-		def - stack
-			a = stack.shift
-			b = stack.shift
-			stack.unshift a - b
-		end
+
 		
 		def dup stack
 			stack.unshift stack[0]
@@ -56,6 +46,29 @@ module Rorth
 			a = stack.shift
 			b = stack.shift
 			stack.unshift a && b
+		end
+		
+		# Mathematical stuff
+		def + stack
+			a = stack.shift
+			b = stack.shift
+			stack.unshift a + b
+		end
+		
+		def - stack
+			a = stack.shift
+			b = stack.shift
+			stack.unshift a - b
+		end
+		
+		def * stack
+			a, b = stack.shift, stack.shift
+			stack.unshift a * b
+		end
+		
+		def / stack
+			a, b = stack.shift, stack.shift
+			stack.unshift a / b
 		end
 	end
 end
