@@ -31,20 +31,26 @@ module Rorth
 				$words[name] = word
 				loc = word_loc + 1
 			end
-			if $ENABLE_SEMI_IFs
+			
+			if $ENABLE_SEMI_IF
 				if code[loc].downcase == "if"
 					if_loc = loc
 					if_code = []
 					
 					until code[if_loc].downcase == "end"
-						if_code = if_code.push code[word_loc]
+						if_code = if_code.push code[if_loc]
 						if_loc += 1
 					end
 					
 					if_code.shift
-					puts if_code.join(" ")
+					if $stack[0]
+						exec if_code
+					end
+					
+					loc = if_loc
 				end
 			end
+			
 			if $INSERT_IFS
 				if code[loc].downcase == "if"
 					if_loc = loc
