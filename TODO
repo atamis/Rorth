@@ -1,6 +1,6 @@
 Things To Do
  - Implement more interesting, and more useful, header system.
- - Complete "semi-if" system, and ship next version with it disabled if it doesn't work, enabled if it does.
+c- Complete "semi-if" system, and ship next version with it disabled if it doesn't work, enabled if it does.
 p- Implement full argument parsing system, including version and license
 p- Add in code documentation, as well as rdoc
 c- Add multiplication and division to builtins
@@ -8,3 +8,4 @@ c- Add multiplication and division to builtins
  - Add more information to README.textile
  - Implement interactive system. Use Clunk? Would add external dependencies...
  - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
+ - Debug option is a bit crazy about what it does, exactly. Do something about it?
