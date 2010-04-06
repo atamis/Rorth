@@ -48,6 +48,12 @@ puts "Ruby Debug Enabled" if $DEBUG
 # Initialize the Rorth System
 init
 
+at_exit do
+	# If we are in debug mode, print the stack. Helpful for, say, debugging.
+	puts $stack.inspect if options[:debug]
+end
+
+
 # Initialize the header. 
 # TODO allow for more flexibility concerning the header. Set it equal to a file, etc.
 header = ""
@@ -75,7 +81,6 @@ exec header
 exec code
 
 enter_interactive if options[:interactive]
-# If we are in debug mode, print the stack. Helpful for, say, debugging.
-puts $stack.inspect if options[:debug]
+	
 
 

@@ -41,7 +41,7 @@ module Rorth
 			stack.unshift stack[0]
 		end
 		
-		def exit
+		def quit stack
 			exit
 		end
 		
