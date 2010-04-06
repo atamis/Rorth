@@ -14,6 +14,8 @@
 #       MA 02110-1301, USA.
 
 module Rorth
+
+	# Check to see if a given string could be converted into a forth primary.
 	def primary? x
 		if x =~ /".*"/ || x =~ /[1234567890]+/
 			true
@@ -24,9 +26,10 @@ module Rorth
 		end
 	end
 	
+	# Convert a string to a forth primary. Presumably, use this after using primary?, so things don't get mixed up.
 	def convert_primary x
 		if x =~/"(.*)"/
-			x = x.split(//)
+			x = x.split(//) # There must be a better way to strip the "s of the string. See the TODO file.
 			x.shift
 			x.pop
 			x.join('')
