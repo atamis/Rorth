@@ -9,3 +9,5 @@ c- Add multiplication and division to builtins
  - Implement interactive system. Use Clunk? Would add external dependencies...
  - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
  - Debug option is a bit crazy about what it does, exactly. Do something about it?
+ - Add some tests. We can test this stuff!
+ - Add loops. Only add while? Other things?
