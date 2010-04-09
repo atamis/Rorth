@@ -12,3 +12,4 @@ c- Add multiplication and division to builtins
  - Add some tests. We can test this stuff!
  - Add loops. Only add while? Other things?
  - Change exec to work with the next command so we can raise an error when nothing happens with a particular section of code
+ - In the semi-if section of exec, should we check to see if the rorth code should be executed before we read the code into seperate memory? This would improve performance.
