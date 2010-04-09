@@ -11,3 +11,4 @@ c- Add multiplication and division to builtins
  - Debug option is a bit crazy about what it does, exactly. Do something about it?
  - Add some tests. We can test this stuff!
  - Add loops. Only add while? Other things?
+ - Change exec to work with the next command so we can raise an error when nothing happens with a particular section of code
