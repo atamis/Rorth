@@ -20,65 +20,80 @@ module Rorth
 		end
 		
 		# Meta stuff. Next question
+		
+		# Add a carrage return. "\n"
 		def cr stack
 			puts
 		end
 		
+		# Print the first item on the stack after converting it to a string. Does not consume.
 		def p stack
 			print stack[0].to_s
 		end
 		
+		# Consumes the first item in the stack and places it in the tmp variable.
 		def tmpg stack
 			$tmp = stack.shift
 			stack
 		end
 		
+		# Places the current tmp variable in the stack. Does not destroy the item in the tmp variable.
 		def tempp stack
 			stack.unshift $tmp
 		end
 		
+		# Copy the first item on the stack.
 		def dup stack
 			stack.unshift stack[0]
 		end
 		
+		# Exit the program.
 		def quit stack
 			exit
 		end
 		
 		# Logic
+		# Logical AND
 		def and stack
 			a = stack.shift
 			b = stack.shift
 			stack.unshift a && b
 		end
 		
+		# Logical OR
 		def or stack
 			a, b = stack.shift, stack.shift
 			stack.unshift a || b
 		end
 		
+		# Inverter
 		def not stack
 			stack.unshift !stack.shift
 		end
 		
 		# Mathematical stuff
+		
+		# Adds. Consumes.
 		def + stack
 			a = stack.shift
 			b = stack.shift
 			stack.unshift a + b
 		end
 		
+		# Subtracts. Consumes.
 		def - stack
 			a = stack.shift
 			b = stack.shift
 			stack.unshift a - b
 		end
 		
+		# Multipies. Consumes
 		def * stack
 			a, b = stack.shift, stack.shift
 			stack.unshift a * b
 		end
 		
+		# Divides. Consumes.
 		def / stack
 			a, b = stack.shift, stack.shift
 			stack.unshift a / b
