@@ -1,9 +1,5 @@
 Things To Do
  - Implement more interesting, and more useful, header system.
-c- Complete "semi-if" system, and ship next version with it disabled if it doesn't work, enabled if it does.
-p- Implement full argument parsing system, including version and license
-p- Add in code documentation, as well as rdoc
-c- Add multiplication and division to builtins
  - Implement multiple stacks feature
  - Add more information to README.textile
  - Implement interactive system. Use Clunk? Would add external dependencies...
@@ -12,3 +8,18 @@ c- Add multiplication and division to builtins
  - Add some tests. We can test this stuff!
  - Add loops. Only add while? Other things?
  - Change exec to work with the next command so we can raise an error when nothing happens with a particular section of code
+ - In the semi-if section of exec, should we check to see if the rorth code should be executed before we read the code into seperate memory? This would improve performance.
+ - Automated documentation system.
+ - Ability to do prepass to define words, and other preprocessing stuff before executing code.
+ - Errors for unfound words/primaries.
+ - Comments. Include them in the automatic documentation software?
+ - Decide which features will be in the next version. Move the other TODOs to the "future version"
+
+Things Done:
+c- Add multiplication and division to builtins
+c- Complete "semi-if" system, and ship next version with it disabled if it doesn't work, enabled if it does.
+c- Implement full argument parsing system, including version and license
+c- Add in code documentation, as well as rdoc
+
+
+Things for the future:
