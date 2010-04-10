@@ -14,6 +14,8 @@
 #       MA 02110-1301, USA.
 
 module Rorth
+	
+	# A class to implement a few built in words. Documentation should be included.
 	class BuiltinWords
 		def initialize
 		

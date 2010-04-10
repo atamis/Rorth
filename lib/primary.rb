@@ -19,7 +19,7 @@ module Rorth
 	def primary? x
 		if x =~ /".*"/ || x =~ /[1234567890]+/
 			true
-		elsif !x.is_a?(Integer)
+		elsif !x.is_a?(Integer) 
 			x.downcase == "true" || x.downcase == "false"
 		else
 			false
@@ -33,9 +33,9 @@ module Rorth
 			x.shift
 			x.pop
 			x.join('')
-		elsif x =~ /[1234567890]+/ 
+		elsif x =~ /[1234567890]+/ # Check to see if it's a number. There is probably way of doing this.
 			x.to_i
-		elsif x.downcase == "true"
+		elsif x.downcase == "true" # Convert string to actual.
 			true
 		elsif x.downcase == "false"
 			false

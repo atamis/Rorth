@@ -15,6 +15,7 @@
 #				This file is just a stub really
 
 module Rorth
+	# Enter the interactive system, like irb. This hasn't been implimented yet.
 	def enter_interactive
 		puts "Entering interactive mode... wait, there isn't an interactive mode yet? Well, it's on the TODO list!"
 		exit

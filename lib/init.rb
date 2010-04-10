@@ -16,9 +16,13 @@
 
 module Rorth
 	
+	# Enable the full if code, which is broken.
 	$INSERT_IFS = false
+	
+	# Enable the semi if code, which does work.
 	$ENABLE_SEMI_IF = true
 	
+	# Initialize a veriaty of global variables that the rorth system relies on.
 	def init
 		$stack = []
 		$words = {}
