@@ -3,7 +3,6 @@ Things To Do
  - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
  - Add some tests. We can test this stuff!
  - Add loops. Only add while? Other things?
-
  - Errors for unfound words/primaries.
  - Decide which features will be in the next version. Move the other TODOs to the "future version"
 
