@@ -54,18 +54,17 @@ module Rorth
 				
 				# This code is very similar to the word definition code...
 				if code[loc].downcase == "if"
-					if_loc = loc
-					if_code = []
-					
-					until code[if_loc].downcase == "end"
-						if_code = if_code.push code[if_loc]
-						if_loc += 1
-					end
-					
-					# Except here, where code is executed if the current stack item is true.
-					if_code.shift
-					if $stack[0]
-						exec if_code
+					if $stack[0] # Though it diverges here. Because execution is not ensured, we want to make sure the code will be executed before we look foward and move it into a variable of its own. This should improve performance.
+						if_loc = loc
+						if_code = []
+						
+						# Until we reach the end of the IF, move the code into its own variable.
+						until code[if_loc].downcase == "end"
+							if_code = if_code.push code[if_loc]
+							if_loc += 1
+						end
+						
+						exec if_code # Execute the code
 					end
 					
 					loc = if_loc
