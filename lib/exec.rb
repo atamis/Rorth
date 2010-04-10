@@ -30,6 +30,8 @@ module Rorth
 		# Initialize a point to the first item in the list. We don't use code.each because we want the ability to move dynamicaly through the list instead of stepping through it. This becomes very useful when the jump forward through the code with words, ifs, and whiles.
 		loc = 0
 		
+		something_happened = false # This is a fairly inelegent solution to the problem that if nothing happens to a piece of code, nothing happens. No errors. So, if something happens to the code, this is set to true. This allows for errors, and the curios situation where 2 actions are taken for any 1 piece of code.
+		
 		# While there is still array to work on...
 		while loc < code.length
 			
@@ -47,6 +49,7 @@ module Rorth
 				name = word.shift # Remove the name and set it equal to an eponymous variable
 				$words[name] = word # Register the word with the words hash/database
 				loc = word_loc + 1
+				something_happened = true
 			end
 			
 			# I was messing around with several different types of ifs, and this will enable the ifs system with no "else"
@@ -68,6 +71,7 @@ module Rorth
 					end
 					
 					loc = if_loc
+					something_happened = true
 				end
 			end
 			
@@ -89,21 +93,25 @@ module Rorth
 					#	end
 					#end
 					loc = if_loc
+					something_happened = true
 				end
 			end
 			
 			# If the code is a primary, convert it, then move it to the front of the stack.
 			if primary? code[loc]
 				$stack = $stack.unshift(convert_primary(code[loc]))
+				something_happened = true
 			end
 			
 			# Check the various places words are stored to see if any of them match the current code. Note that user and header defined words have precidence over built in words. Theoretoricaly, this means you could really mess with the system if you overrode the "+" word, for instance.
 			if $words.has_key? code[loc]
 				exec $words[code[loc]]
+				something_happened = true
 			elsif $builtin_words.respond_to? code[loc].downcase.to_sym
 				$builtin_words.send code[loc].downcase.to_sym, $stack
+				something_happened = true
 			end
-			#raise Exception.new "Something went wrong! One of the things you typed in didn\'t get parsed as anything. OH NOES! Word was #{code[loc]}"
+			raise Exception.new "A piece of code was not acted upon. The code was #{code[loc]}. Surounding code was #{code[loc-5...loc+5] ? code[loc-5...loc+5] : "not there"}" unless something_happened
 			
 			# Always move forward. This might be moved elsewhere.
 			loc += 1
