@@ -75,6 +75,24 @@ module Rorth
 				end
 			end
 			
+			if code[loc] == "while"
+				while_loc = loc
+				while_code = []
+				
+				until code[while_loc] == "end"
+					while_code.push code[while_loc]
+					while_loc += 1
+				end
+				while_code.shift
+				
+				while $stack[0]
+					exec while_code
+				end
+				
+				something_happened = true
+				loc = while_loc
+			end
+			
 			# Failed full if section. Not sure why it failed... Maybe we need to regex it to see if it includes an else?
 			if $INSERT_IFS
 				if code[loc].downcase == "if"
