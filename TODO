@@ -1,18 +1,11 @@
 Things To Do
- - Implement more interesting, and more useful, header system.
- - Implement multiple stacks feature
- - Add more information to README.textile
  - Implement interactive system. Use Clunk? Would add external dependencies...
  - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
- - Debug option is a bit crazy about what it does, exactly. Do something about it?
  - Add some tests. We can test this stuff!
  - Add loops. Only add while? Other things?
  - Change exec to work with the next command so we can raise an error when nothing happens with a particular section of code
  - In the semi-if section of exec, should we check to see if the rorth code should be executed before we read the code into seperate memory? This would improve performance.
- - Automated documentation system.
- - Ability to do prepass to define words, and other preprocessing stuff before executing code.
  - Errors for unfound words/primaries.
- - Comments. Include them in the automatic documentation software?
  - Decide which features will be in the next version. Move the other TODOs to the "future version"
 
 Things Done:
@@ -23,3 +16,12 @@ c- Add in code documentation, as well as rdoc
 
 
 Things for the future:
+ - Automated documentation system.
+ - Ability to do prepass to define words, and other preprocessing stuff before executing code.
+ - Implement multiple stacks feature
+
+Hazy suggestions:
+ - Debug option is a bit crazy about what it does, exactly. Do something about it?
+ - Implement more interesting, and more useful, header system.
+ - Add more information to README.textile
+ - Comments. Include them in the automatic documentation software?
