@@ -1,8 +1,5 @@
 Things To Do
- - Implement interactive system. Use Clunk? Would add external dependencies...
  - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
- - Add loops. Only add while? Other things?
-c- Decide which features will be in the next version. Move the other TODOs to the "future version"
 
 Things Done:
 c- Add multiplication and division to builtins
@@ -12,7 +9,9 @@ c- Add in code documentation, as well as rdoc
 c- In the semi-if section of exec, should we check to see if the rorth code should be executed before we read the code into seperate memory? This would improve performance.
 c- Change exec to work with the next command so we can raise an error when nothing happens with a particular section of code
 c- Decide which features will be in the next version. Move the other TODOs to the "future version"
-
+c- Implement interactive system. Use Clunk? Would add external dependencies...
+c- Decide which features will be in the next version. Move the other TODOs to the "future version"
+c- Add loops. Only add while? Other things?
 
 Things for the future:
  - Automated documentation system.
@@ -20,6 +19,8 @@ Things for the future:
  - Implement multiple stacks feature
  - Add regression testing to make sure exec works as it is supposed to.
 p- Add some tests. We can test this stuff! (done as much as I want to. See above. That's the next testing project)
+ - Add conditionals. Without them, loops are useless.
+ - Add interactive mode that doens't require readline
 
 Hazy suggestions:
  - Debug option is a bit crazy about what it does, exactly. Do something about it?
