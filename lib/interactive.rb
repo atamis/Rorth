@@ -17,7 +17,35 @@
 module Rorth
 	# Enter the interactive system, like irb. This hasn't been implimented yet.
 	def enter_interactive
-		puts "Entering interactive mode... wait, there isn't an interactive mode yet? Well, it's on the TODO list!"
+		begin
+			require 'readline'
+		rescue LoadError
+			puts "Could not load readline."
+		end
+		
+		if $options[:restore_tty_interactive]
+			stty_save = `stty -g`.chomp
+			trap('INT') { system('stty', stty_save); exit }
+		end
+		
+		while line = Readline.readline('> ', true)
+			begin
+				interactive_exec line.to_s.split(' ')
+			rescue CodeNotUsed => e
+				puts "CodeNotUsed error: " + e
+			end
+		end
+		
+		#puts "Entering interactive mode... wait, there isn't an interactive mode yet? Well, it's on the TODO list!"
 		exit
+	end
+	
+	def interactive_exec ary
+		case ary[0]
+			when /stack/
+				puts $stack.inspect
+			else
+				exec ary
+		end
 	end
 end
