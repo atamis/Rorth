@@ -129,11 +129,14 @@ module Rorth
 				$builtin_words.send code[loc].downcase.to_sym, $stack
 				something_happened = true
 			end
-			raise Exception.new "A piece of code was not acted upon. The code was #{code[loc]}. Surounding code was #{code[loc-5...loc+5] ? code[loc-5...loc+5] : "not there"}" unless something_happened
+			raise CodeNotUsed.new "A piece of code was not acted upon. The code was #{code[loc]}. Surounding code was #{code[loc-5...loc+5] ? code[loc-5...loc+5] : "not there"}" unless something_happened
 			
 			# Always move forward. This might be moved elsewhere.
 			loc += 1
 			end
 	
+	end
+	
+	class CodeNotUsed < StandardError
 	end
 end
