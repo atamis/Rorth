@@ -55,24 +55,24 @@
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
-                <a href="../files/lib/builtins_rb.html">
-                lib/builtins.rb
+                <a href="../files/lib/interactive_rb.html">
+                lib/interactive.rb
                 </a>
         <br />
                 <a href="../files/lib/exec_rb.html">
                 lib/exec.rb
                 </a>
         <br />
+                <a href="../files/lib/primary_rb.html">
+                lib/primary.rb
+                </a>
+        <br />
                 <a href="../files/lib/init_rb.html">
                 lib/init.rb
                 </a>
         <br />
-                <a href="../files/lib/interactive_rb.html">
-                lib/interactive.rb
-                </a>
-        <br />
-                <a href="../files/lib/primary_rb.html">
-                lib/primary.rb
+                <a href="../files/lib/builtins_rb.html">
+                lib/builtins.rb
                 </a>
         <br />
             </td>
@@ -116,11 +116,11 @@ Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000005">convert_primary</a>&nbsp;&nbsp;
-      <a href="#M000003">enter_interactive</a>&nbsp;&nbsp;
-      <a href="#M000001">exec</a>&nbsp;&nbsp;
-      <a href="#M000002">init</a>&nbsp;&nbsp;
-      <a href="#M000004">primary?</a>&nbsp;&nbsp;
+      <a href="#M000004">convert_primary</a>&nbsp;&nbsp;
+      <a href="#M000001">enter_interactive</a>&nbsp;&nbsp;
+      <a href="#M000002">exec</a>&nbsp;&nbsp;
+      <a href="#M000005">init</a>&nbsp;&nbsp;
+      <a href="#M000003">primary?</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -135,6 +135,7 @@ Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
       <h3 class="section-bar">Classes and Modules</h3>
 
       Class <a href="Rorth/BuiltinWords.html" class="link">Rorth::BuiltinWords</a><br />
+Class <a href="Rorth/CodeNotUsed.html" class="link">Rorth::CodeNotUsed</a><br />
 
     </div>
 
@@ -148,11 +149,11 @@ Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
     <div id="methods">
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000005" class="method-detail">
-        <a name="M000005"></a>
+      <div id="method-M000004" class="method-detail">
+        <a name="M000004"></a>
 
         <div class="method-heading">
-          <a href="#M000005" class="method-signature">
+          <a href="#M000004" class="method-signature">
           <span class="method-name">convert_primary</span><span class="method-args">(x)</span>
           </a>
         </div>
@@ -160,11 +161,11 @@ Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
         <div class="method-description">
           <p>
 Convert a string to a forth primary. Presumably, use this after using <a
-href="Rorth.html#M000004">primary?</a>, so things don&#8216;t get mixed up.
+href="Rorth.html#M000003">primary?</a>, so things don&#8216;t get mixed up.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000005-source">
+            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000004-source">
 <pre>
     <span class="ruby-comment cmt"># File lib/primary.rb, line 30</span>
 30:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">convert_primary</span> <span class="ruby-identifier">x</span>
@@ -173,9 +174,9 @@ href="Rorth.html#M000004">primary?</a>, so things don&#8216;t get mixed up.
 33:                         <span class="ruby-identifier">x</span>.<span class="ruby-identifier">shift</span>
 34:                         <span class="ruby-identifier">x</span>.<span class="ruby-identifier">pop</span>
 35:                         <span class="ruby-identifier">x</span>.<span class="ruby-identifier">join</span>(<span class="ruby-value str">''</span>)
-36:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/[1234567890]+/</span> 
+36:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/[1234567890]+/</span> <span class="ruby-comment cmt"># Check to see if it's a number. There is probably way of doing this.</span>
 37:                         <span class="ruby-identifier">x</span>.<span class="ruby-identifier">to_i</span>
-38:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span>
+38:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span> <span class="ruby-comment cmt"># Convert string to actual.</span>
 39:                         <span class="ruby-keyword kw">true</span>
 40:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;false&quot;</span>
 41:                         <span class="ruby-keyword kw">false</span>
@@ -186,116 +187,49 @@ href="Rorth.html#M000004">primary?</a>, so things don&#8216;t get mixed up.
         </div>
       </div>
 
-      <div id="method-M000003" class="method-detail">
-        <a name="M000003"></a>
-
-        <div class="method-heading">
-          <a href="#M000003" class="method-signature">
-          <span class="method-name">enter_interactive</span><span class="method-args">()</span>
-          </a>
-        </div>
-      
-        <div class="method-description">
-          <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000003-source">
-<pre>
-    <span class="ruby-comment cmt"># File lib/interactive.rb, line 18</span>
-18:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enter_interactive</span>
-19:                 <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Entering interactive mode... wait, there isn't an interactive mode yet? Well, it's on the TODO list!&quot;</span>
-20:                 <span class="ruby-identifier">exit</span>
-21:         <span class="ruby-keyword kw">end</span>
-</pre>
-          </div>
-        </div>
-      </div>
-
       <div id="method-M000001" class="method-detail">
         <a name="M000001"></a>
 
         <div class="method-heading">
           <a href="#M000001" class="method-signature">
-          <span class="method-name">exec</span><span class="method-args">(code)</span>
+          <span class="method-name">enter_interactive</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
+          <p>
+Enter the interactive system, like irb. A readline version of it has been
+partialy implemented. No history, and no support for input methods other
+than readline.
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000001-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000001-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/exec.rb, line 17</span>
-17:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exec</span> <span class="ruby-identifier">code</span>
-18:                 <span class="ruby-identifier">loc</span> = <span class="ruby-value">0</span>
-19:                 <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">loc</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">length</span>
-20:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">':'</span>
-21:                                 <span class="ruby-identifier">word</span> = []
-22:                                 <span class="ruby-identifier">word_loc</span> = <span class="ruby-identifier">loc</span>
-23:                                 
-24:                                 <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">word_loc</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">';'</span>
-25:                                         <span class="ruby-identifier">word</span> = <span class="ruby-identifier">word</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">word_loc</span>]
-26:                                         <span class="ruby-identifier">word_loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-27:                                 <span class="ruby-keyword kw">end</span>
-28:                                 
-29:                                 <span class="ruby-identifier">word</span>.<span class="ruby-identifier">shift</span>
-30:                                 <span class="ruby-identifier">name</span> = <span class="ruby-identifier">word</span>.<span class="ruby-identifier">shift</span>
-31:                                 <span class="ruby-identifier">$words</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">word</span>
-32:                                 <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">word_loc</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
-33:                         <span class="ruby-keyword kw">end</span>
-34:                         
-35:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$ENABLE_SEMI_IF</span>
-36:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;if&quot;</span>
-37:                                         <span class="ruby-identifier">if_loc</span> = <span class="ruby-identifier">loc</span>
-38:                                         <span class="ruby-identifier">if_code</span> = []
-39:                                         
-40:                                         <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;end&quot;</span>
-41:                                                 <span class="ruby-identifier">if_code</span> = <span class="ruby-identifier">if_code</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>]
-42:                                                 <span class="ruby-identifier">if_loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-43:                                         <span class="ruby-keyword kw">end</span>
-44:                                         
-45:                                         <span class="ruby-identifier">if_code</span>.<span class="ruby-identifier">shift</span>
-46:                                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$stack</span>[<span class="ruby-value">0</span>]
-47:                                                 <span class="ruby-identifier">exec</span> <span class="ruby-identifier">if_code</span>
-48:                                         <span class="ruby-keyword kw">end</span>
-49:                                         
-50:                                         <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">if_loc</span>
-51:                                 <span class="ruby-keyword kw">end</span>
-52:                         <span class="ruby-keyword kw">end</span>
-53:                         
-54:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$INSERT_IFS</span>
-55:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;if&quot;</span>
-56:                                         <span class="ruby-identifier">if_loc</span> = <span class="ruby-identifier">loc</span>
-57:                                         <span class="ruby-identifier">if_code</span> = []
-58:                                         <span class="ruby-identifier">else_code</span> = []
-59:                                         <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;else&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;end&quot;</span>
-60:                                                 <span class="ruby-identifier">if_code</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>]
-61:                                                 <span class="ruby-identifier">if_loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-62:                                         <span class="ruby-keyword kw">end</span>
-63:                                         <span class="ruby-comment cmt">#if if_code[if_code.length-1].downcase == &quot;else&quot;</span>
-64:                                         
-65:                                         <span class="ruby-comment cmt">#else</span>
-66:                                         <span class="ruby-comment cmt">#  if $stack[0]</span>
-67:                                         <span class="ruby-comment cmt">#          if_code</span>
-68:                                         <span class="ruby-comment cmt">#  end</span>
-69:                                         <span class="ruby-comment cmt">#end</span>
-70:                                         <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">if_loc</span>
-71:                                 <span class="ruby-keyword kw">end</span>
-72:                         <span class="ruby-keyword kw">end</span>
-73:                         
-74:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">primary?</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]
-75:                                 <span class="ruby-identifier">$stack</span> = <span class="ruby-identifier">$stack</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">convert_primary</span>(<span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]))
-76:                         <span class="ruby-keyword kw">end</span>
-77:                         
-78:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$words</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]
-79:                                 <span class="ruby-identifier">forth_exec</span> <span class="ruby-identifier">$words</span>[<span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]]
-80:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">$builtin_words</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
-81:                                 <span class="ruby-identifier">$builtin_words</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">$stack</span>
-82:                         <span class="ruby-keyword kw">end</span>
-83:                         <span class="ruby-comment cmt">#raise Exception.new &quot;Something went wrong! One of the things you typed in didn\'t get parsed as anything. OH NOES! Word was #{code[loc]}&quot;</span>
-84:                         <span class="ruby-identifier">loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
-85:                         <span class="ruby-keyword kw">end</span>
-86:         
-87:         <span class="ruby-keyword kw">end</span>
+    <span class="ruby-comment cmt"># File lib/interactive.rb, line 21</span>
+21:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">enter_interactive</span>
+22:                 <span class="ruby-keyword kw">begin</span>
+23:                         <span class="ruby-identifier">require</span> <span class="ruby-value str">'readline'</span>
+24:                 <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">LoadError</span>
+25:                         <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;Could not load readline.&quot;</span>
+26:                 <span class="ruby-keyword kw">end</span>
+27:                 
+28:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$options</span>[<span class="ruby-identifier">:restore_tty_interactive</span>]
+29:                         <span class="ruby-identifier">stty_save</span> = <span class="ruby-value">`stty -g`</span>.<span class="ruby-identifier">chomp</span>
+30:                         <span class="ruby-identifier">trap</span>(<span class="ruby-value str">'INT'</span>) { <span class="ruby-identifier">system</span>(<span class="ruby-value str">'stty'</span>, <span class="ruby-identifier">stty_save</span>); <span class="ruby-identifier">exit</span> }
+31:                 <span class="ruby-keyword kw">end</span>
+32:                 
+33:                 <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">line</span> = <span class="ruby-constant">Readline</span>.<span class="ruby-identifier">readline</span>(<span class="ruby-value str">'&gt; '</span>, <span class="ruby-keyword kw">true</span>)
+34:                         <span class="ruby-keyword kw">begin</span>
+35:                                 <span class="ruby-identifier">interactive_exec</span> <span class="ruby-identifier">line</span>.<span class="ruby-identifier">to_s</span>.<span class="ruby-identifier">split</span>(<span class="ruby-value str">' '</span>)
+36:                         <span class="ruby-keyword kw">rescue</span> <span class="ruby-constant">CodeNotUsed</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">e</span>
+37:                                 <span class="ruby-identifier">puts</span> <span class="ruby-value str">&quot;CodeNotUsed error: &quot;</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">e</span>
+38:                         <span class="ruby-keyword kw">end</span>
+39:                 <span class="ruby-keyword kw">end</span>
+40:                 
+41:                 <span class="ruby-comment cmt">#puts &quot;Entering interactive mode... wait, there isn't an interactive mode yet? Well, it's on the TODO list!&quot;</span>
+42:                 <span class="ruby-identifier">exit</span>
+43:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
@@ -306,32 +240,180 @@ href="Rorth.html#M000004">primary?</a>, so things don&#8216;t get mixed up.
 
         <div class="method-heading">
           <a href="#M000002" class="method-signature">
-          <span class="method-name">init</span><span class="method-args">()</span>
+          <span class="method-name">exec</span><span class="method-args">(code)</span>
           </a>
         </div>
       
         <div class="method-description">
+          <p>
+Interprets rorth code. Expects an array. Needs some cleaning up.
+</p>
+<pre>
+     code = &quot;2 2 +&quot;.split                # =&gt; ['2', '2', '+']
+     exec code # =&gt; Depends on input
+</pre>
+<p>
+An interesting feature/bug is that once a piece of code has been appraised
+for one thing, something that doesn&#8216;t jump around (ifs, words, and
+loops,) you could theoretorically have a piece of code do 2 things. For
+instance, if you had a word called &quot;&quot;word&quot;&quot; (Yes, that
+is &quot;word&quot; surrounded by quotations marks) you could push
+&quot;word&quot; to the stack and execute a command called &quot;word&quot;
+</p>
           <p><a class="source-toggle" href="#"
             onclick="toggleCode('M000002-source');return false;">[Source]</a></p>
           <div class="method-source-code" id="M000002-source">
 <pre>
-    <span class="ruby-comment cmt"># File lib/init.rb, line 22</span>
-22:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">init</span>
-23:                 <span class="ruby-identifier">$stack</span> = []
-24:                 <span class="ruby-identifier">$words</span> = {}
-25:                 <span class="ruby-identifier">$builtin_words</span> = <span class="ruby-constant">BuiltinWords</span>.<span class="ruby-identifier">new</span>
-26:                 <span class="ruby-identifier">$tmp</span> = <span class="ruby-keyword kw">nil</span>
-27:         <span class="ruby-keyword kw">end</span>
+     <span class="ruby-comment cmt"># File lib/exec.rb, line 29</span>
+ 29:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exec</span> <span class="ruby-identifier">code</span>
+ 30:                 <span class="ruby-comment cmt"># Initialize a point to the first item in the list. We don't use code.each because we want the ability to move dynamicaly through the list instead of stepping through it. This becomes very useful when the jump forward through the code with words, ifs, and whiles.</span>
+ 31:                 <span class="ruby-identifier">loc</span> = <span class="ruby-value">0</span>
+ 32:                 
+ 33:                 <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">false</span> <span class="ruby-comment cmt"># This is a fairly inelegent solution to the problem that if nothing happens to a piece of code, nothing happens. No errors. So, if something happens to the code, this is set to true. This allows for errors, and the curios situation where 2 actions are taken for any 1 piece of code.</span>
+ 34:                 
+ 35:                 <span class="ruby-comment cmt"># While there is still array to work on...</span>
+ 36:                 <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">loc</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">code</span>.<span class="ruby-identifier">length</span>
+ 37:                         
+ 38:                         <span class="ruby-comment cmt"># Check if the code starts a word definition, if it does, initialize another counter, and read the word into another variable.</span>
+ 39:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">':'</span>
+ 40:                                 <span class="ruby-identifier">word</span> = []
+ 41:                                 <span class="ruby-identifier">word_loc</span> = <span class="ruby-identifier">loc</span>
+ 42:                                 
+ 43:                                 <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">word_loc</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">';'</span>
+ 44:                                         <span class="ruby-identifier">word</span> = <span class="ruby-identifier">word</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">word_loc</span>]
+ 45:                                         <span class="ruby-identifier">word_loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 46:                                 <span class="ruby-keyword kw">end</span>
+ 47:                                 
+ 48:                                 <span class="ruby-identifier">word</span>.<span class="ruby-identifier">shift</span> <span class="ruby-comment cmt"># Remove the :</span>
+ 49:                                 <span class="ruby-identifier">name</span> = <span class="ruby-identifier">word</span>.<span class="ruby-identifier">shift</span> <span class="ruby-comment cmt"># Remove the name and set it equal to an eponymous variable</span>
+ 50:                                 <span class="ruby-identifier">$words</span>[<span class="ruby-identifier">name</span>] = <span class="ruby-identifier">word</span> <span class="ruby-comment cmt"># Register the word with the words hash/database</span>
+ 51:                                 <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">word_loc</span> <span class="ruby-operator">+</span> <span class="ruby-value">1</span>
+ 52:                                 <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">true</span>
+ 53:                         <span class="ruby-keyword kw">end</span>
+ 54:                         
+ 55:                         <span class="ruby-comment cmt"># I was messing around with several different types of ifs, and this will enable the ifs system with no &quot;else&quot;</span>
+ 56:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$ENABLE_SEMI_IF</span>
+ 57:                                 
+ 58:                                 <span class="ruby-comment cmt"># This code is very similar to the word definition code...</span>
+ 59:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;if&quot;</span>
+ 60:                                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$stack</span>[<span class="ruby-value">0</span>] <span class="ruby-comment cmt"># Though it diverges here. Because execution is not ensured, we want to make sure the code will be executed before we look foward and move it into a variable of its own. This should improve performance.</span>
+ 61:                                                 <span class="ruby-identifier">if_loc</span> = <span class="ruby-identifier">loc</span>
+ 62:                                                 <span class="ruby-identifier">if_code</span> = []
+ 63:                                                 
+ 64:                                                 <span class="ruby-comment cmt"># Until we reach the end of the IF, move the code into its own variable.</span>
+ 65:                                                 <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;end&quot;</span>
+ 66:                                                         <span class="ruby-identifier">if_code</span> = <span class="ruby-identifier">if_code</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>]
+ 67:                                                         <span class="ruby-identifier">if_loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 68:                                                 <span class="ruby-keyword kw">end</span>
+ 69:                                                 
+ 70:                                                 <span class="ruby-identifier">exec</span> <span class="ruby-identifier">if_code</span> <span class="ruby-comment cmt"># Execute the code</span>
+ 71:                                         <span class="ruby-keyword kw">end</span>
+ 72:                                         
+ 73:                                         <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">if_loc</span>
+ 74:                                         <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">true</span>
+ 75:                                 <span class="ruby-keyword kw">end</span>
+ 76:                         <span class="ruby-keyword kw">end</span>
+ 77:                         
+ 78:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;while&quot;</span>
+ 79:                                 <span class="ruby-identifier">while_loc</span> = <span class="ruby-identifier">loc</span>
+ 80:                                 <span class="ruby-identifier">while_code</span> = []
+ 81:                                 
+ 82:                                 <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">while_loc</span>] <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;end&quot;</span>
+ 83:                                         <span class="ruby-identifier">while_code</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">while_loc</span>]
+ 84:                                         <span class="ruby-identifier">while_loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+ 85:                                 <span class="ruby-keyword kw">end</span>
+ 86:                                 <span class="ruby-identifier">while_code</span>.<span class="ruby-identifier">shift</span>
+ 87:                                 
+ 88:                                 <span class="ruby-keyword kw">while</span> <span class="ruby-identifier">$stack</span>[<span class="ruby-value">0</span>]
+ 89:                                         <span class="ruby-identifier">exec</span> <span class="ruby-identifier">while_code</span>
+ 90:                                 <span class="ruby-keyword kw">end</span>
+ 91:                                 
+ 92:                                 <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">true</span>
+ 93:                                 <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">while_loc</span>
+ 94:                         <span class="ruby-keyword kw">end</span>
+ 95:                         
+ 96:                         <span class="ruby-comment cmt"># Failed full if section. Not sure why it failed... Maybe we need to regex it to see if it includes an else?</span>
+ 97:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$INSERT_IFS</span>
+ 98:                                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;if&quot;</span>
+ 99:                                         <span class="ruby-identifier">if_loc</span> = <span class="ruby-identifier">loc</span>
+100:                                         <span class="ruby-identifier">if_code</span> = []
+101:                                         <span class="ruby-identifier">else_code</span> = []
+102:                                         <span class="ruby-keyword kw">until</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;else&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>].<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;end&quot;</span>
+103:                                                 <span class="ruby-identifier">if_code</span>.<span class="ruby-identifier">push</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">if_loc</span>]
+104:                                                 <span class="ruby-identifier">if_loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+105:                                         <span class="ruby-keyword kw">end</span>
+106:                                         <span class="ruby-comment cmt">#if if_code[if_code.length-1].downcase == &quot;else&quot;</span>
+107:                                         
+108:                                         <span class="ruby-comment cmt">#else</span>
+109:                                         <span class="ruby-comment cmt">#  if $stack[0]</span>
+110:                                         <span class="ruby-comment cmt">#          if_code</span>
+111:                                         <span class="ruby-comment cmt">#  end</span>
+112:                                         <span class="ruby-comment cmt">#end</span>
+113:                                         <span class="ruby-identifier">loc</span> = <span class="ruby-identifier">if_loc</span>
+114:                                         <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">true</span>
+115:                                 <span class="ruby-keyword kw">end</span>
+116:                         <span class="ruby-keyword kw">end</span>
+117:                         
+118:                         <span class="ruby-comment cmt"># If the code is a primary, convert it, then move it to the front of the stack.</span>
+119:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">primary?</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]
+120:                                 <span class="ruby-identifier">$stack</span> = <span class="ruby-identifier">$stack</span>.<span class="ruby-identifier">unshift</span>(<span class="ruby-identifier">convert_primary</span>(<span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]))
+121:                                 <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">true</span>
+122:                         <span class="ruby-keyword kw">end</span>
+123:                         
+124:                         <span class="ruby-comment cmt"># Check the various places words are stored to see if any of them match the current code. Note that user and header defined words have precidence over built in words. Theoretoricaly, this means you could really mess with the system if you overrode the &quot;+&quot; word, for instance.</span>
+125:                         <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">$words</span>.<span class="ruby-identifier">has_key?</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]
+126:                                 <span class="ruby-identifier">exec</span> <span class="ruby-identifier">$words</span>[<span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>]]
+127:                                 <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">true</span>
+128:                         <span class="ruby-keyword kw">elsif</span> <span class="ruby-identifier">$builtin_words</span>.<span class="ruby-identifier">respond_to?</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>
+129:                                 <span class="ruby-identifier">$builtin_words</span>.<span class="ruby-identifier">send</span> <span class="ruby-identifier">code</span>[<span class="ruby-identifier">loc</span>].<span class="ruby-identifier">downcase</span>.<span class="ruby-identifier">to_sym</span>, <span class="ruby-identifier">$stack</span>
+130:                                 <span class="ruby-identifier">something_happened</span> = <span class="ruby-keyword kw">true</span>
+131:                         <span class="ruby-keyword kw">end</span>
+132:                         <span class="ruby-identifier">raise</span> <span class="ruby-constant">CodeNotUsed</span>.<span class="ruby-identifier">new</span> <span class="ruby-node">&quot;A piece of code was not acted upon. The code was #{code[loc]}. Surounding code was #{code[loc-5...loc+5] ? code[loc-5...loc+5] : &quot;not there&quot;}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">something_happened</span>
+133:                         
+134:                         <span class="ruby-comment cmt"># Always move forward. This might be moved elsewhere.</span>
+135:                         <span class="ruby-identifier">loc</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+136:                         <span class="ruby-keyword kw">end</span>
+137:         
+138:         <span class="ruby-keyword kw">end</span>
 </pre>
           </div>
         </div>
       </div>
 
-      <div id="method-M000004" class="method-detail">
-        <a name="M000004"></a>
+      <div id="method-M000005" class="method-detail">
+        <a name="M000005"></a>
 
         <div class="method-heading">
-          <a href="#M000004" class="method-signature">
+          <a href="#M000005" class="method-signature">
+          <span class="method-name">init</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+          <p>
+Initialize a veriaty of global variables that the rorth system relies on.
+</p>
+          <p><a class="source-toggle" href="#"
+            onclick="toggleCode('M000005-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000005-source">
+<pre>
+    <span class="ruby-comment cmt"># File lib/init.rb, line 26</span>
+26:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">init</span>
+27:                 <span class="ruby-identifier">$stack</span> = []
+28:                 <span class="ruby-identifier">$words</span> = {}
+29:                 <span class="ruby-identifier">$builtin_words</span> = <span class="ruby-constant">BuiltinWords</span>.<span class="ruby-identifier">new</span>
+30:                 <span class="ruby-identifier">$tmp</span> = <span class="ruby-keyword kw">nil</span>
+31:         <span class="ruby-keyword kw">end</span>
+</pre>
+          </div>
+        </div>
+      </div>
+
+      <div id="method-M000003" class="method-detail">
+        <a name="M000003"></a>
+
+        <div class="method-heading">
+          <a href="#M000003" class="method-signature">
           <span class="method-name">primary?</span><span class="method-args">(x)</span>
           </a>
         </div>
@@ -341,14 +423,14 @@ href="Rorth.html#M000004">primary?</a>, so things don&#8216;t get mixed up.
 Check to see if a given string could be converted into a forth primary.
 </p>
           <p><a class="source-toggle" href="#"
-            onclick="toggleCode('M000004-source');return false;">[Source]</a></p>
-          <div class="method-source-code" id="M000004-source">
+            onclick="toggleCode('M000003-source');return false;">[Source]</a></p>
+          <div class="method-source-code" id="M000003-source">
 <pre>
     <span class="ruby-comment cmt"># File lib/primary.rb, line 19</span>
 19:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">primary?</span> <span class="ruby-identifier">x</span>
 20:                 <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/&quot;.*&quot;/</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span> <span class="ruby-operator">=~</span> <span class="ruby-regexp re">/[1234567890]+/</span>
 21:                         <span class="ruby-keyword kw">true</span>
-22:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">x</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>)
+22:                 <span class="ruby-keyword kw">elsif</span> <span class="ruby-operator">!</span><span class="ruby-identifier">x</span>.<span class="ruby-identifier">is_a?</span>(<span class="ruby-constant">Integer</span>) 
 23:                         <span class="ruby-identifier">x</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;true&quot;</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">x</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-value str">&quot;false&quot;</span>
 24:                 <span class="ruby-keyword kw">else</span>
 25:                         <span class="ruby-keyword kw">false</span>

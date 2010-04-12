@@ -1,5 +1,4 @@
 Things To Do
- - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
 
 Things Done:
 c- Add multiplication and division to builtins
@@ -21,6 +20,7 @@ Things for the future:
 p- Add some tests. We can test this stuff! (done as much as I want to. See above. That's the next testing project)
  - Add conditionals. Without them, loops are useless.
  - Add interactive mode that doens't require readline
+ - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
 
 Hazy suggestions:
  - Debug option is a bit crazy about what it does, exactly. Do something about it?

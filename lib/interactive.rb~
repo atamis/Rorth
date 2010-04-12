@@ -43,7 +43,7 @@ module Rorth
 	end
 	
 	private
-	def interactive_exec ary # :nodoc:
+	def interactive_exec ary
 		case ary[0]
 			when /stack/
 				puts $stack.inspect
