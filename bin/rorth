@@ -11,7 +11,7 @@ require 'interactive'
 include Rorth
 
 # Set the defaults.
-$options = {:debug => false, :interactive => false, :code => false, :load => false}
+$options = {:debug => false, :interactive => false, :code => false, :load => false, :restore_tty_interactive => true}
 OptionParser.new do |opts|
 	opts.banner = "Usage: #{__FILE__} [options]"
 
@@ -33,6 +33,10 @@ OptionParser.new do |opts|
 
 	opts.on('-l', '--load-file [FILE]', 'Select the file to load.') do |file|
 		$options[:load] = file
+	end
+	
+	opts.on('-r', '--[no-]restore-tty', 'Attempt to restore tty on INT in interactive mode. On by default.') do |x|
+		$options[:restore_tty_interactive] = x
 	end
 
 	opts.on( '-h', '--help', 'Display this screen' ) do
