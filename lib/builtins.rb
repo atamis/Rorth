@@ -54,7 +54,14 @@ module Rorth
 			exit
 		end
 		
+		# Delete the first item on the stack. Consumes. Obviously.
+		def pop stack
+			stack.shift
+			stack
+		end
+		
 		# Logic
+		
 		# Logical AND
 		def and stack
 			a = stack.shift
@@ -99,6 +106,27 @@ module Rorth
 		def / stack
 			a, b = stack.shift, stack.shift
 			stack.unshift a / b
+		end
+		
+		# Conditionals
+		
+		# Conditional equals. Does not consume.
+		define_method("=".to_sym) do |stack|
+			stack.unshift stack[0] == stack[1]
+			stack
+		end
+		
+		
+		# Greater than. Does not consume.
+		def > stack
+			stack.unshift stack[0] > stack[1]
+			stack
+		end
+		
+		# Less than. Does not consume
+		def < stack
+			stack.unshift stack[0] < stack[1]
+			stack
 		end
 	end
 end
