@@ -40,7 +40,7 @@ module Rorth
 		end
 		
 		# Places the current tmp variable in the stack. Does not destroy the item in the tmp variable.
-		def tempp stack
+		def tmpp stack
 			stack.unshift $tmp
 		end
 		
