@@ -5,6 +5,7 @@ p- Add some tests. We can test this stuff! (done as much as I want to. See above
  - Add interactive mode that doens't require readline
  - lib/primary.rb, line 32-35. There has to be a better way for striping the "s of both ends of the string. Anyone? please? x.gsub('\"', '') ? Maybe?
  - Implement multiple stacks feature
+ - Refactor code into OO pattern. Rorth::Intpreter would be the main class. Allows for multiple interpreters, and for easier testing.
 
 Things Done:
 c- Add multiplication and division to builtins
