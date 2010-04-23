@@ -50,11 +50,11 @@ puts $options.inspect if $options[:debug]
 puts "Ruby Debug Enabled" if $DEBUG
 
 # Initialize the Rorth System
-init
+interpreter = Rorth::Interpreter.new($options)
 
 at_exit do
 	# If we are in debug mode, print the stack. Helpful for, say, debugging.
-	puts $stack.inspect if $options[:debug]
+	puts interpreter.stack.inspect if $options[:debug]
 end
 
 
@@ -80,9 +80,9 @@ code = code.split(" ")
 header = header.split(" ")
 
 # Execute the header and code string.
-exec header
+interpreter.exec header
 
-exec code
+interpreter.exec code
 
 enter_interactive if $options[:interactive]
 	

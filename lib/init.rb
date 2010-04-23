@@ -23,10 +23,14 @@ module Rorth
 	$ENABLE_SEMI_IF = true
 	
 	# Initialize a veriaty of global variables that the rorth system relies on.
-	def init
-		$stack = []
-		$words = {}
-		$builtin_words = BuiltinWords.new
-		$tmp = nil
+	class Interpreter
+		attr_accessor :stack, :words, :builtin_words, :tmp, :options
+		def initialize(options)
+			@stack = []
+			@words = {}
+			@builtin_words = BuiltinWords.new
+			@tmp = nil
+			@options = options
+	end
 	end
 end

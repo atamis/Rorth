@@ -16,6 +16,7 @@
 module Rorth
 
 	# Check to see if a given string could be converted into a forth primary.
+	
 	def primary? x
 		if x =~ /".*"/ || x =~ /[1234567890]+/
 			true
