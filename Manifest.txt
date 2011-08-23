@@ -1,0 +1,8 @@
+.autotest
+History.txt
+Manifest.txt
+README.txt
+Rakefile
+bin/rorth
+lib/rorth.rb
+test/test_rorth.rb

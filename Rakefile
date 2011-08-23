@@ -1,43 +1,22 @@
-
+# -*- ruby -*-
 
 require 'rubygems'
-require 'rake'
-require 'rake/clean'
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
-require 'rake/testtask'
+require 'hoe'
 
-spec = Gem::Specification.new do |s|
-  s.name = 'Rorth'
-  s.version = '0.3'
-  s.has_rdoc = true
-  s.extra_rdoc_files = ['README.textile', 'LICENSE']
-  s.summary = 'An interpreted, stack based language based on Forth.'
-  s.description = s.summary
-  s.author = 'Indigo Casson'
-  s.email = 'atamiser@gmail.com'
-  s.homepage = 'http://www.geeklob.wordpress.com'
-  s.executables = ['rorth']
-  s.files = %w(LICENSE README.textile Rakefile) + Dir.glob("{bin,lib,spec}/**/*")
-  s.require_path = "lib"
-  s.bindir = "bin"
+# Hoe.plugin :compiler
+# Hoe.plugin :gem_prelude_sucks
+# Hoe.plugin :inline
+# Hoe.plugin :racc
+# Hoe.plugin :rubyforge
+
+Hoe.spec 'rorth' do
+  # HEY! If you fill these out in ~/.hoe_template/Rakefile.erb then
+  # you'll never have to touch them again!
+  # (delete this comment too, of course)
+
+  # developer('FIX', 'FIX@example.com')
+
+  # self.rubyforge_name = 'rorthx' # if different than 'rorth'
 end
 
-Rake::GemPackageTask.new(spec) do |p|
-  p.gem_spec = spec
-  p.need_tar = true
-  p.need_zip = true
-end
-
-Rake::RDocTask.new do |rdoc|
-  files =['README.textile', 'LICENSE', 'lib/**/*.rb']
-  rdoc.rdoc_files.add(files)
-  rdoc.main = "README.textile" # page to start on
-  rdoc.title = "Rorth Docs"
-  rdoc.rdoc_dir = 'doc/rdoc' # rdoc output folder
-  rdoc.options << '--line-numbers'
-end
-
-Rake::TestTask.new do |t|
-  t.test_files = FileList['test/**/*.rb']
-end
+# vim: syntax=ruby
